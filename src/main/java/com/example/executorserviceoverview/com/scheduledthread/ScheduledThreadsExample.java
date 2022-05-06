@@ -1,18 +1,17 @@
-package com.example.executorserviceoverview;
+package com.example.executorserviceoverview.com.scheduledthread;
 
 import com.example.executorserviceoverview.com.Task;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.*;
 
 public class ScheduledThreadsExample {
-    ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+    static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     public ScheduledThreadsExample() {
     }
 
-    public void callOnScheduledThread() throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException {
+//    public void callOnScheduledThread() throws InterruptedException, ExecutionException {
         ScheduledFuture scheduledFuture = null;
         try {
             Task task = new Task("Scheduled Task");

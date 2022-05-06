@@ -1,4 +1,4 @@
-package com.example.executorserviceoverview;
+package com.example.executorserviceoverview.com.fixedthread;
 
 import com.example.executorserviceoverview.com.Task;
 
@@ -16,12 +16,16 @@ import java.util.concurrent.*;
 
 public class FixedThreadsExample {
 
-    ExecutorService executorService;
+    static ExecutorService executorService;
 
     public FixedThreadsExample() {
     }
 
-    public void getAllData() throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        getAllData();
+        getAnyData();
+    }
+    public static void getAllData() throws InterruptedException, ExecutionException {
         System.out.println("started getAllData");
         executorService = Executors.newFixedThreadPool(4);
         Future<String> future = null;
@@ -52,7 +56,7 @@ public class FixedThreadsExample {
         System.out.println("ended getAllData");
     }
 
-    public void getAnyData() throws InterruptedException, ExecutionException {
+    public static void getAnyData() throws InterruptedException, ExecutionException {
         System.out.println("started getAnyData");
         executorService = Executors.newFixedThreadPool(4);
         List<Callable<Task>> tasks = new ArrayList<>();

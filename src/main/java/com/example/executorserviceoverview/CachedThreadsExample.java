@@ -7,17 +7,18 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class CachedThreadsExample {
-    ExecutorService executorService = Executors.newCachedThreadPool();
+    static ExecutorService executorService = Executors.newCachedThreadPool();
 
     public CachedThreadsExample() {
     }
 
-    public void callOncachedThread() throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+//    public void callOncachedThread() throws InterruptedException, ExecutionException {
         Future<String> future = null;
         List<Future<Task>> futuresList = new ArrayList<>();
         List<Callable<Task>> tasks = new ArrayList<>();
         try {
-            for(int i =0;i<50;i++) {
+            for(int i =0;i<10;i++) {
                 Task task = new Task("Task "+i);
                 tasks.add(task);
             }

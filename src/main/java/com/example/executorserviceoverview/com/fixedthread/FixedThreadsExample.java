@@ -22,11 +22,12 @@ public class FixedThreadsExample {
     }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
+        System.out.println("===========InvokeAll()========\n\n");
         getAllData();
+        System.out.println("\n\n===========InvokeAny()========\n\n");
         getAnyData();
     }
     public static void getAllData() throws InterruptedException, ExecutionException {
-        System.out.println("started getAllData");
         executorService = Executors.newFixedThreadPool(4);
         Future<String> future = null;
         List<Future<Task>> futuresList = new ArrayList<>();
@@ -53,11 +54,9 @@ public class FixedThreadsExample {
             String task = String.valueOf(futureRes.get());
             System.out.println(task.toString());
         }
-        System.out.println("ended getAllData");
     }
 
-    public static void getAnyData() throws InterruptedException, ExecutionException {
-        System.out.println("started getAnyData");
+    public static void getAnyData() throws InterruptedException {
         executorService = Executors.newFixedThreadPool(4);
         List<Callable<Task>> tasks = new ArrayList<>();
         try {
@@ -79,7 +78,6 @@ public class FixedThreadsExample {
                 executorService.shutdownNow();
             }
         }
-        System.out.println("ended getAnyData");
     }
 
 

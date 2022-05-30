@@ -13,7 +13,6 @@ public class CachedThreadsExample {
     }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-//    public void callOncachedThread() throws InterruptedException, ExecutionException {
         Future<String> future = null;
         List<Future<Task>> futuresList = new ArrayList<>();
         List<Callable<Task>> tasks = new ArrayList<>();

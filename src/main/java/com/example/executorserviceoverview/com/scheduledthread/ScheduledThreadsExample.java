@@ -14,12 +14,12 @@ public class ScheduledThreadsExample {
 //    public void callOnScheduledThread() throws InterruptedException, ExecutionException {
         ScheduledFuture scheduledFuture = null;
         try {
-            Task task = new Task("Scheduled Task");
+            Task task = new Task("Tablet");
             scheduledFuture = executorService.schedule(
                     task, 5, TimeUnit.SECONDS);
             executorService.shutdown();
-            String res = String.valueOf(scheduledFuture.get());
-            System.out.println("got " + res);
+            Task res = (Task) scheduledFuture.get();
+            System.out.println("Completed Scheduled task:" + res.getName());
         } catch (Exception ex) {
             System.out.println("ERROR:" + ex);
             executorService.shutdownNow();

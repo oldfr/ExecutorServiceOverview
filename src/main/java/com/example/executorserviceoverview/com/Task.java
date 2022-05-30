@@ -30,11 +30,9 @@ public class Task implements Callable {
     @Override
     public Task call() {
         System.out.println("running tasks:"+this.getName()+" in thread:"+Thread.currentThread().getId());
-        if(this.getName().equals("Task 3")) {
-//                Thread.sleep(3000);
-        }
+        /*if(this.getName().equals("Task 3")) {
+        }*/
         this.result = "completed task:"+this.getName();
-//        return "completed task:"+this.getName();
         return this;
     }
 }

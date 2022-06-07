@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.Async;
 
 import java.util.concurrent.*;
 
-@Async
+
 public class SingleThreadExample {
 
     static ExecutorService executorService = Executors.newSingleThreadExecutor();
